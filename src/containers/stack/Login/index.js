@@ -23,8 +23,8 @@ export default function Login ({ navigation }) {
 
     const [stylesTitle, setStylesTitle] = useState({ fontSize: 27, fontWeight: 'bold' });
     const STATE_INITIAL = {
-        email: '',
-        password: ''
+        email: 'fernandojoseropero@gmail.com',
+        password: '123456'
     }
     const { values, errors, submitForm, handleSubmit, handleChange } = useValidate(STATE_INITIAL, validateLogin, handlerLogin)
 

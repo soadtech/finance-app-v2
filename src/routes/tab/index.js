@@ -5,24 +5,24 @@ export default [
         path: "home",
         label: "Daily",
         icon: 'calendar-o',
-        component: Home
+        component: Home,
     },
     {
         path: "stats",
         label: "Stat",
         icon: 'line-chart',
-        component: Home
+        component: Home,
     },
     {
         path: "budget",
         label: "Budget",
         icon: 'money',
-        component: Home
+        component: Home,
     },
     {
         path: "profile",
         label: "Profile",
         icon: 'user-o',
-        component: Home
+        component: Home,
     },
 ]
