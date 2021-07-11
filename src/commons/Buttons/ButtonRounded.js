@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { colors } from '../../helpers/constants'
 
-export default function ButtonRounded ({ label }) {
+export default function ButtonRounded ({ label, handler }) {
     return (
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity onPress={handler} style={styles.btn}>
             <Text style={styles.label}>{label}</Text>
         </TouchableOpacity>
     )

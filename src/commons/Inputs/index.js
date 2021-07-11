@@ -2,11 +2,14 @@ import React from 'react';
 import { TextInput, View, StyleSheet, Text } from 'react-native';
 import { colors } from '../../helpers/constants'
 
-export default function Input ({ label, placeholder, name, error }) {
+export default function Input ({ label, placeholder, handleChange, name, value, errors }) {
+    const stylesErrLabel = errors[name] ? { color: 'red' } : { color: colors.gray };
+    const stylesErrInput = errors[name] ? { borderBottomColor: 'red' } : { borderBottomColor: colors.gray };
+
     return (
         <View>
-            <Text style={styles.label}>{label}</Text>
-            <TextInput style={styles.input} placeholder={placeholder} />
+            <Text style={[styles.label, stylesErrLabel]}>{label}</Text>
+            <TextInput style={[styles.input, stylesErrInput]} value={value} onChangeText={(text) => handleChange(name, text)} placeholder={placeholder} />
         </View>
     )
 }

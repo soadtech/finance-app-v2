@@ -5,7 +5,9 @@ import Input from '../../../commons/Inputs';
 import Wrapper from '../../../components/Wrapper';
 import ButtonRounded from '../../../commons/Buttons/ButtonRounded';
 import Button from '../../../commons/Buttons/Button';
-import { colors } from '../../../helpers/constants'
+import { colors } from '../../../helpers/constants';
+import useValidate from '../../../hooks/useValidate';
+import validateLogin from '../../../helpers/validations/validLogin'
 
 const icon = <Icon name="arrow-forward-ios" size={30} color='#fff' />
 
@@ -19,7 +21,12 @@ if (
 
 export default function Login () {
 
-    const [stylesTitle, setStylesTitle] = useState({ fontSize: 27, fontWeight: 'bold' })
+    const [stylesTitle, setStylesTitle] = useState({ fontSize: 27, fontWeight: 'bold' });
+    const STATE_INITIAL = {
+        email: '',
+        password: ''
+    }
+    const { values, errors, handleSubmit, handleChange } = useValidate(STATE_INITIAL, validateLogin, handlerLogin)
 
     useEffect(() => {
         Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -39,6 +46,10 @@ export default function Login () {
         setStylesTitle({ ...stylesTitle, fontSize: 27 })
     };
 
+    async function handlerLogin () {
+        console.log('Haciendo login')
+    }
+    console.log('errors =>', errors);
     return (
         <Wrapper>
             <View style={styles.container}>
@@ -56,16 +67,15 @@ export default function Login () {
                 </View>
                 <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
                     <View style={{ marginBottom: 20 }}>
-                        <Input label='Email' placeholder='name@domain.com' />
+                        <Input name='email' errors={errors} values={values.email} handleChange={handleChange} label='Email' placeholder='name@domain.com' />
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                         <View style={{ flex: 0.9 }}>
-                            <Input label='Password' placeholder='***********' />
+                            <Input name='password' errors={errors} values={values.password} handleChange={handleChange} label='Password' placeholder='***********' />
                         </View>
                         <View>
-                            <ButtonRounded label={icon} />
+                            <ButtonRounded handler={handleSubmit} label={icon} />
                         </View>
-
                     </View>
                 </View>
 
