@@ -26,7 +26,7 @@ export default function Login () {
         email: '',
         password: ''
     }
-    const { values, errors, handleSubmit, handleChange } = useValidate(STATE_INITIAL, validateLogin, handlerLogin)
+    const { values, errors, submitForm, handleSubmit, handleChange } = useValidate(STATE_INITIAL, validateLogin, handlerLogin)
 
     useEffect(() => {
         Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -49,7 +49,7 @@ export default function Login () {
     async function handlerLogin () {
         console.log('Haciendo login')
     }
-    console.log('errors =>', errors);
+    console.log('values =>', submitForm);
     return (
         <Wrapper>
             <View style={styles.container}>
@@ -74,7 +74,7 @@ export default function Login () {
                             <Input name='password' errors={errors} values={values.password} handleChange={handleChange} label='Password' placeholder='***********' />
                         </View>
                         <View>
-                            <ButtonRounded handler={handleSubmit} label={icon} />
+                            <ButtonRounded submitForm={submitForm} handler={handleSubmit} label={icon} />
                         </View>
                     </View>
                 </View>

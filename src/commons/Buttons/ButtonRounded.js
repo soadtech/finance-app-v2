@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { colors } from '../../helpers/constants'
 
-export default function ButtonRounded ({ label, handler }) {
+export default function ButtonRounded ({ label, handler, submitForm }) {
     return (
-        <TouchableOpacity onPress={handler} style={styles.btn}>
+        <TouchableOpacity onPress={handler} style={[styles.btn, { backgroundColor: submitForm ? colors.primary : colors.gray }]}>
             <Text style={styles.label}>{label}</Text>
         </TouchableOpacity>
     )
