@@ -32,12 +32,10 @@ export default function Login () {
     }, []);
 
     const _keyboardDidShow = () => {
-        console.log('Teclado');
         setStylesTitle({ ...stylesTitle, fontSize: 18 })
     };
 
     const _keyboardDidHide = () => {
-        console.log('Teclado NO');
         setStylesTitle({ ...stylesTitle, fontSize: 27 })
     };
 
