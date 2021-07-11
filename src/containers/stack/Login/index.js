@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react'
+import { Text, View, StyleSheet, Image, TouchableOpacity, Keyboard, UIManager, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Input from '../../../commons/Inputs';
 import Wrapper from '../../../components/Wrapper';
@@ -9,7 +9,38 @@ import { colors } from '../../../helpers/constants'
 
 const icon = <Icon name="arrow-forward-ios" size={30} color='#fff' />
 
+if (
+    Platform.OS === "android" &&
+    UIManager.setLayoutAnimationEnabledExperimental
+) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+
 export default function Login () {
+
+    const [stylesTitle, setStylesTitle] = useState({ fontSize: 27, fontWeight: 'bold' })
+
+    useEffect(() => {
+        Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+        Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+        // cleanup function
+        return () => {
+            Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+            Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+        };
+    }, []);
+
+    const _keyboardDidShow = () => {
+        console.log('Teclado');
+        setStylesTitle({ ...stylesTitle, fontSize: 18 })
+    };
+
+    const _keyboardDidHide = () => {
+        console.log('Teclado NO');
+        setStylesTitle({ ...stylesTitle, fontSize: 27 })
+    };
+
     return (
         <Wrapper>
             <View style={styles.container}>
@@ -20,8 +51,10 @@ export default function Login () {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <Image style={{ width: '100%', height: '90%' }} resizeMode='contain' source={require('../../../assets/logo.png')} />
-                    <Text style={{ fontSize: 27, fontWeight: 'bold' }}>Login to you account</Text>
+                    <Image style={{ width: '100%', height: '85%' }} resizeMode='contain' source={require('../../../assets/logo.png')} />
+                    <View>
+                        <Text style={stylesTitle}>Login to you account</Text>
+                    </View>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
                     <View style={{ marginBottom: 20 }}>
