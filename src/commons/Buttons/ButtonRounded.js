@@ -12,8 +12,8 @@ export default function ButtonRounded ({ label }) {
 const styles = StyleSheet.create({
     btn: {
         backgroundColor: colors.primary,
-        paddingVertical: 25,
-        paddingHorizontal: 30,
+        paddingVertical: 15,
+        paddingHorizontal: 15,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
