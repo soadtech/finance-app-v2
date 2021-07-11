@@ -49,7 +49,7 @@ export default function Login () {
     async function handlerLogin () {
         console.log('Haciendo login')
     }
-    console.log('values =>', submitForm);
+
     return (
         <Wrapper>
             <View style={styles.container}>

@@ -10,23 +10,25 @@ const useValidate = (stateInitial, validate, fn) => {
             const noErrors = Object.keys(errors).length === 0;
             if (noErrors) {
                 fn()
+                return
             }
             setSubmitForm(false)
         }
     }, [errors]);
 
     const handleChange = (name, value) => {
-        const errorsValidations = validate(values);
+        const dataVa = {
+            ...values,
+            [name]: value
+        }
+        const errorsValidations = validate(dataVa);
         const noErrors = Object.keys(errorsValidations).length === 0;
         if (noErrors) {
             setSubmitForm(true)
         } else {
             setSubmitForm(false)
         }
-        setValues({
-            ...values,
-            [name]: value
-        })
+        setValues(dataVa)
     }
 
     const handleSubmit = () => {
