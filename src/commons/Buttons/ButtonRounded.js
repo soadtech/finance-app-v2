@@ -1,0 +1,26 @@
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { colors } from '../../helpers/constants'
+
+export default function ButtonRounded ({ label }) {
+    return (
+        <TouchableOpacity style={styles.btn}>
+            <Text style={styles.label}>{label}</Text>
+        </TouchableOpacity>
+    )
+}
+const styles = StyleSheet.create({
+    btn: {
+        backgroundColor: colors.primary,
+        paddingVertical: 25,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    label: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
+})
