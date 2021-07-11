@@ -74,7 +74,7 @@ export default function Login ({ navigation }) {
                             <Input name='password' errors={errors} values={values.password} handleChange={handleChange} label='Password' placeholder='***********' />
                         </View>
                         <View>
-                            <ButtonRounded submitForm={submitForm} handler={handleSubmit} label={icon} />
+                            <ButtonRounded submitForm={handlerLogin} handler={handleSubmit} label={icon} />
                         </View>
                     </View>
                 </View>
