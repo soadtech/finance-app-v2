@@ -47,7 +47,7 @@ export default function Login ({ navigation }) {
     };
 
     async function handlerLogin () {
-        console.log('Haciendo login')
+        navigation.navigate('home')
     }
 
     return (
