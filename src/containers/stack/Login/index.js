@@ -19,7 +19,7 @@ if (
 }
 
 
-export default function Login () {
+export default function Login ({ navigation }) {
 
     const [stylesTitle, setStylesTitle] = useState({ fontSize: 27, fontWeight: 'bold' });
     const STATE_INITIAL = {
@@ -55,7 +55,7 @@ export default function Login () {
             <View style={styles.container}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text style={{ fontSize: 18 }}>Budget tracker</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('register')}>
                         <Text style={{ color: colors.primary, fontSize: 18 }}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>

@@ -23,6 +23,7 @@ const useValidate = (stateInitial, validate, fn) => {
         }
         const errorsValidations = validate(dataVa);
         const noErrors = Object.keys(errorsValidations).length === 0;
+        setErrors(errorsValidations);
         if (noErrors) {
             setSubmitForm(true)
         } else {
