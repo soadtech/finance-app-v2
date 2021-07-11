@@ -9,7 +9,14 @@ export default function Input ({ label, placeholder, handleChange, name, value, 
     return (
         <View>
             <Text style={[styles.label, stylesErrLabel]}>{label}</Text>
-            <TextInput style={[styles.input, stylesErrInput]} value={value} onChangeText={(text) => handleChange(name, text)} placeholder={placeholder} />
+            <TextInput
+                autoCorrect={false}
+                autoCompleteType='off'
+                autoCapitalize='none'
+                style={[styles.input, stylesErrInput]}
+                value={value}
+                onChangeText={(text) => handleChange(name, text)}
+                placeholder={placeholder} />
         </View>
     )
 }
