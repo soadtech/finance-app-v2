@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native'
 import CardMonth from '../../../components/CardMonth';
 import Header from '../../../components/Header';
 import Wrapper from '../../../components/Wrapper';
+import { colors } from '../../../helpers/constants'
+import CardTypeTransaction from '../../../components/CardTypeTransaction';
 
 const data = [
     {
@@ -66,8 +68,14 @@ export default function Home () {
 
                 </View>
 
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <View style={{ flex: 0.49 }}>
+                        <CardTypeTransaction name='Income' bg={colors.secondary} total='6,593.750' icon='arrow-collapse-left' />
+                    </View>
 
+                    <View style={{ flex: 0.49 }}>
+                        <CardTypeTransaction name='Expense' bg={colors.primary} total='2,645.500' icon='arrow-collapse-right' />
+                    </View>
                 </View>
 
             </View>
