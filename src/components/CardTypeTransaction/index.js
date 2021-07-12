@@ -14,7 +14,7 @@ export default function CardTypeTransaction ({ icon, bg, name, total }) {
 
             <View>
                 <Text style={{ color: colors.gray, fontSize: 16 }}>{name}</Text>
-                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>$ {total}</Text>
+                <Text style={{ fontSize: 24, fontWeight: 'bold' }}>$ {total}</Text>
             </View>
         </View>
     )
